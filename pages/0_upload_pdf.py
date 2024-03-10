@@ -33,13 +33,13 @@ from openai import OpenAI
 
 LOGGER = get_logger(__name__)
 
-PINECONE_API_KEY=os.environ['PINECONE_API_KEY']
-PINECONE_API_ENV=os.environ['PINECONE_API_ENV']
-PINECONE_INDEX_NAME=os.environ['PINECONE_INDEX_NAME']
+PINECONE_API_KEY=st.secrets['PINECONE_API_KEY']
+PINECONE_API_ENV=st.secrets['PINECONE_API_ENV']
+PINECONE_INDEX_NAME=st.secrets['PINECONE_INDEX_NAME']
 
-new_key = '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'
-#client=OpenAI(api_key=os.environ['OPENAI_API_KEY'])
-client=OpenAI(api_key=new_key)
+
+client=OpenAI(api_key=st.secrets['OPENAI_API_KEY'])
+
 
 def pdf_to_text(uploaded_file):
     pdfReader = PyPDF2.PdfReader(uploaded_file)
